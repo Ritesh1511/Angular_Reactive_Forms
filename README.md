@@ -1,113 +1,3 @@
-1️⃣ Template-Driven Forms (what you studied earlier)
-
-In template forms, the form is created in the HTML first.
-
-```
-Example:
-
-<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
-
-Here:
-
-#myForm
-
-creates a template reference variable.
-
-Meaning:
-
-HTML creates the form
-Angular exposes it as NgForm
-#myForm references it
-
-So flow is:
-
-HTML → Angular → TypeScript
-
-Structure:
-
-HTML
- |
- | #myForm="ngForm"
- ↓
-NgForm object created by Angular
- |
- ↓
-Passed to TypeScript
-
-Example TS:
-
-onSubmit(myForm: NgForm){
- console.log(myForm.value);
-}
-
-So Template Forms are HTML-driven.
-```
-
-
-2️⃣ Reactive Forms (what we started now)
-
-Reactive forms work opposite.
-
-The form is created in TypeScript first.
-
-```
-Example:
-
-myForm = new FormGroup({});
-
-Then HTML connects to it.
-
-<form [formGroup]="myForm">
-
-So flow becomes:
-
-TypeScript → Angular → HTML
-
-Structure:
-
-TypeScript
-   |
-   | FormGroup created
-   ↓
-HTML connects using [formGroup]
-```
-
-
-
-
-# Visual Comparison
-Template Form
-HTML
- |
- | #myForm="ngForm"
- ↓
-NgForm created
- |
- ↓
-TypeScript
-
-
-
-
-# Reactive Form
-
-TypeScript
- |
- | new FormGroup()
- ↓
-HTML connects using [formGroup]
-
-
-
-
-Remember this:
-
-> Template Forms → HTML first
-> Reactive Forms → TypeScript first
-
-
-
-
 # Reactive Forms - 
 A Reactive Form in Angular is a form where the form structure, fields, and validation are controlled in the TypeScript file instead of the HTML.
 
@@ -126,10 +16,10 @@ So the component (TS) manages the form, and the HTML just displays it.
 
 
 
-> import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 want to use these classes in this file.”
 
-> imports: [RouterOutlet, ReactiveFormsModule]
+imports: [RouterOutlet, ReactiveFormsModule]
 These Angular modules/directives are allowed to be used in my HTML template.
 
 
@@ -217,6 +107,8 @@ export class App {
 
 ```
 
+
+```
 myForm = new FormGroup({});
 
 FormGroup is a class provided by Angular from:
@@ -275,6 +167,8 @@ FormGroup
    |--- email control
    |--- password control
 
+
+```
 
 # Visual Flow
 
